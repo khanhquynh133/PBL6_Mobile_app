@@ -1,15 +1,16 @@
 /** @format */
 
 import * as React from "react";
-import { Text, View, Image } from "react-native";
-import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
-import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import HomeApplicant from "../applicant/HomeApplicant";
 import TotalJobPosting from "./TotalJobPosting";
+import SettingPageA from "./SettingPageA";
+import ProfileInformation from "./ProfileInformation";
+import { View, Text } from "react-native";
+
+import Icon from "react-native-vector-icons/Ionicons";
 import { createStackNavigator } from "@react-navigation/stack";
-import Icon from "react-native-vector-icons/MaterialIcons";
 const Stack = createStackNavigator();
 function HomePage({ navigation }) {
 	return (
@@ -50,71 +51,24 @@ function Fav() {
 	);
 }
 
-function Setting({ navigation }) {
+function tabNoti() {
 	return (
-		<View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-			<TouchableOpacity
-				icon='home'
-				style={{
-					alignItems: "center",
-					justifyContent: "center",
-					backgroundColor: "#426EB4",
-					padding: 10,
-					height: 35,
-					width: 140,
-					borderRadius: 20,
-					marginLeft: 50,
-					marginRight: 50,
-					marginTop: 20,
-					flexDirection: "row",
-				}}
-				onPress={() => navigation.navigate("Welcome")}>
-				<Icon
-					name='person'
-					size={16}
-					style={{ alignItems: "center", marginRight: 12, color: "#FFF" }}
-				/>
-				<Text
-					style={{
-						fontWeight: "bold",
-						fontSize: 13,
-						color: "#FFF",
-						textAlign: "center",
-					}}>
-					EDIT INFOR
-				</Text>
-			</TouchableOpacity>
-			<TouchableOpacity
-				style={{
-					alignItems: "center",
-					justifyContent: "center",
-					backgroundColor: "#426EB4",
-					padding: 10,
-					height: 35,
-					width: 140,
-					borderRadius: 20,
-					marginLeft: 50,
-					marginRight: 50,
-					marginTop: 20,
-					flexDirection: "row",
-				}}
-				onPress={() => navigation.navigate("Welcome")}>
-				<Icon
-					name='logout'
-					size={16}
-					style={{ alignItems: "center", marginRight: 12, color: "#FFF" }}
-				/>
-				<Text
-					style={{
-						fontWeight: "bold",
-						fontSize: 13,
-						color: "#FFF",
-						textAlign: "center",
-					}}>
-					LOGOUT
-				</Text>
-			</TouchableOpacity>
+		<View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+			<Text>Noti!</Text>
 		</View>
+	);
+}
+
+function tabSetting() {
+	return (
+		<Stack.Navigator
+			screenOptions={{
+				headerShown: false,
+			}}
+			initialRouteName='Setting'>
+			<Stack.Screen name='Setting' component={SettingPageA} />
+			<Stack.Screen name='Profile' component={ProfileInformation} />
+		</Stack.Navigator>
 	);
 }
 
@@ -128,17 +82,6 @@ function MyTabs() {
 				tabBarActiveTintColor: "#e91e63",
 				tabBarVisible: false,
 			}}>
-			<Tab.Screen
-				name='HomePage'
-				component={HomePage}
-				options={{
-					tabBarLabel: "Home",
-					tabBarIcon: ({ color, size }) => (
-						<MaterialCommunityIcons name='home' color={color} size={size} />
-					),
-				}}
-			/>
-
 			<Tab.Screen
 				name='New Feed'
 				component={Post}
@@ -164,18 +107,34 @@ function MyTabs() {
 					),
 				}}
 			/>
+			<Tab.Screen
+				name='HomePage'
+				component={HomePage}
+				options={{
+					tabBarLabel: "Home",
+					tabBarIcon: ({ color, size }) => (
+						<MaterialCommunityIcons name='home' color={color} size={size} />
+					),
+				}}
+			/>
+			<Tab.Screen
+				name='Notification'
+				component={tabNoti}
+				options={{
+					tabBarLabel: "Notification",
+					tabBarIcon: ({ color, size }) => (
+						<Icon name='md-notifications' color={color} size={size} />
+					),
+				}}
+			/>
 
 			<Tab.Screen
 				name='Setting'
-				component={Setting}
+				component={tabSetting}
 				options={{
 					tabBarLabel: "Setting",
 					tabBarIcon: ({ color, size }) => (
-						<MaterialCommunityIcons
-							name='settings-helper'
-							color={color}
-							size={size}
-						/>
+						<Icon name='settings' color={color} size={size} />
 					),
 				}}
 			/>
