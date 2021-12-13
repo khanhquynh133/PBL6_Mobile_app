@@ -13,6 +13,7 @@ import Home from "./Home";
 import Company from "./Company";
 import DetailCompany from "./DetailCompany";
 import HR from "./HR";
+import Applicant from "../admin/Applicant";
 import Login from "../general/Login";
 import { createStackNavigator } from "@react-navigation/stack";
 const Stack = createStackNavigator();
@@ -56,11 +57,16 @@ function tabHR() {
 		</Stack.Navigator>
 	);
 }
-function Applicant() {
+function tabApplicant() {
 	return (
-		<View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-			<Text>Applicant!</Text>
-		</View>
+		<Stack.Navigator
+			screenOptions={{
+				headerShown: false,
+			}}
+			initialRouteName='HRR'>
+			<Stack.Screen name='HRR' component={Applicant} />
+			<Stack.Screen name='DetailCompany' component={DetailCompany} />
+		</Stack.Navigator>
 	);
 }
 
@@ -142,7 +148,7 @@ function MyTabs() {
 			/>
 			<Tab.Screen
 				name='Applicant'
-				component={Applicant}
+				component={tabApplicant}
 				options={{
 					tabBarLabel: "Applicant",
 					tabBarIcon: ({ color, size }) => (

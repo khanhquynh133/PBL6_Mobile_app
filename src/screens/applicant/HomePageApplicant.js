@@ -9,7 +9,6 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import HomeApplicant from "../applicant/HomeApplicant";
 import TotalJobPosting from "./TotalJobPosting";
 import { createStackNavigator } from "@react-navigation/stack";
-
 import Icon from "react-native-vector-icons/MaterialIcons";
 const Stack = createStackNavigator();
 function HomePage({ navigation }) {

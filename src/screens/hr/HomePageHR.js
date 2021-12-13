@@ -8,7 +8,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import HomeHR from "../hr/HomeHR";
 import TotalPosts from "./TotalPosts";
-
+import Icon from "react-native-vector-icons/MaterialIcons";
 import { createStackNavigator } from "@react-navigation/stack";
 const Stack = createStackNavigator();
 function HomePage({ navigation }) {
@@ -43,18 +43,56 @@ function Setting({ navigation }) {
 	return (
 		<View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
 			<TouchableOpacity
+				icon='home'
 				style={{
 					alignItems: "center",
+					justifyContent: "center",
 					backgroundColor: "#426EB4",
 					padding: 10,
 					height: 35,
-					width: 120,
+					width: 140,
 					borderRadius: 20,
 					marginLeft: 50,
 					marginRight: 50,
 					marginTop: 20,
+					flexDirection: "row",
 				}}
 				onPress={() => navigation.navigate("Welcome")}>
+				<Icon
+					name='person'
+					size={16}
+					style={{ alignItems: "center", marginRight: 12, color: "#FFF" }}
+				/>
+				<Text
+					style={{
+						fontWeight: "bold",
+						fontSize: 13,
+						color: "#FFF",
+						textAlign: "center",
+					}}>
+					EDIT INFOR
+				</Text>
+			</TouchableOpacity>
+			<TouchableOpacity
+				style={{
+					alignItems: "center",
+					justifyContent: "center",
+					backgroundColor: "#426EB4",
+					padding: 10,
+					height: 35,
+					width: 140,
+					borderRadius: 20,
+					marginLeft: 50,
+					marginRight: 50,
+					marginTop: 20,
+					flexDirection: "row",
+				}}
+				onPress={() => navigation.navigate("Welcome")}>
+				<Icon
+					name='logout'
+					size={16}
+					style={{ alignItems: "center", marginRight: 12, color: "#FFF" }}
+				/>
 				<Text
 					style={{
 						fontWeight: "bold",
