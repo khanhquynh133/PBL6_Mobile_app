@@ -9,7 +9,6 @@ import {
 	TextInput,
 	TouchableOpacity,
 } from "react-native";
-import { useFonts } from "expo-font";
 const Register = ({ navigation }) => {
 	const [name, onChangeName] = React.useState("");
 	const [email, onChangeEmail] = React.useState("");
