@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Text, View, Image } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
+import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -10,6 +10,10 @@ import TotalCompany from "./TotalCompany";
 import TotalApplicant from "./TotalApplicant";
 import TotalHR from "./TotalHR";
 import Home from "./Home";
+import Company from "./Company";
+import DetailCompany from "./DetailCompany";
+import HR from "./HR";
+import Login from "../general/Login";
 import { createStackNavigator } from "@react-navigation/stack";
 const Stack = createStackNavigator();
 function HomePage({ navigation }) {
@@ -24,64 +28,32 @@ function HomePage({ navigation }) {
 			<Stack.Screen name='TotalApplicant' component={TotalApplicant} />
 			<Stack.Screen name='TotalHR' component={TotalHR} />
 		</Stack.Navigator>
-		// <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-		// 	<Text>Feed!</Text>
-		// </View>
-		// <View style={{ flex: 1, backgroundColor: "#E0FFFF" }}>
-		// 	<Image
-		// 		style={{ width: 80, height: 80, alignSelf: "center", marginTop: 70 }}
-		// 		source={require("../../assets/images/logo.png")}
-		// 	/>
-		// 	<Text
-		// 		style={{
-		// 			color: "#2b3240",
-		// 			fontSize: 30,
-		// 			alignSelf: "center",
-		// 			marginTop: 10,
-		// 			fontWeight: "bold",
-		// 		}}>
-		// 		HREO DASH
-		// 	</Text>
-		// 	<ScrollView
-		// 		style={{ marginTop: 50 }}
-		// 		showsHorizontalScrollIndicator={false}
-		// 		horizontal>
-		// 		<Cards
-		// 			onPress={() => navigation.navigate("TotalCompany")}
-		// 			icon='home'
-		// 			title='TOTAL COMPANY'
-		// 			number='1101'
-		// 		/>
-		// 		<Cards
-		// 			onPress={() => navigation.navigate("TotalApplicant")}
-		// 			icon='person'
-		// 			title='TOTAL APPLICANTS'
-		// 			number='1101'
-		// 		/>
-		// 		<Cards
-		// 			onPress={() => navigation.navigate("TotalHR")}
-		// 			icon='people'
-		// 			title='TOTAL                HR'
-		// 			number='1111'
-		// 		/>
-		// 	</ScrollView>
-		// </View>
 	);
 }
 
-function Company() {
+function tabCompany() {
 	return (
-		<View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-			<Text>Company!</Text>
-		</View>
+		<Stack.Navigator
+			screenOptions={{
+				headerShown: false,
+			}}
+			initialRouteName='Companyy'>
+			<Stack.Screen name='Companyy' component={Company} />
+			<Stack.Screen name='DetailCompany' component={DetailCompany} />
+		</Stack.Navigator>
 	);
 }
 
-function HR() {
+function tabHR() {
 	return (
-		<View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-			<Text>HR!</Text>
-		</View>
+		<Stack.Navigator
+			screenOptions={{
+				headerShown: false,
+			}}
+			initialRouteName='HRR'>
+			<Stack.Screen name='HRR' component={HR} />
+			<Stack.Screen name='DetailCompany' component={DetailCompany} />
+		</Stack.Navigator>
 	);
 }
 function Applicant() {
@@ -92,10 +64,32 @@ function Applicant() {
 	);
 }
 
-function Setting() {
+function Setting({ navigation }) {
 	return (
-		<View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-			<Text>Setting!</Text>
+		<View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+			<TouchableOpacity
+				style={{
+					alignItems: "center",
+					backgroundColor: "#426EB4",
+					padding: 10,
+					height: 35,
+					width: 120,
+					borderRadius: 20,
+					marginLeft: 50,
+					marginRight: 50,
+					marginTop: 20,
+				}}
+				onPress={() => navigation.navigate("Welcome")}>
+				<Text
+					style={{
+						fontWeight: "bold",
+						fontSize: 13,
+						color: "#FFF",
+						textAlign: "center",
+					}}>
+					LOGOUT
+				</Text>
+			</TouchableOpacity>
 		</View>
 	);
 }
@@ -108,6 +102,7 @@ function MyTabs() {
 			initialRouteName='HomePage'
 			screenOptions={{
 				tabBarActiveTintColor: "#e91e63",
+				tabBarVisible: false,
 			}}>
 			<Tab.Screen
 				name='HomePage'
@@ -122,7 +117,7 @@ function MyTabs() {
 
 			<Tab.Screen
 				name='Company'
-				component={Company}
+				component={tabCompany}
 				options={{
 					tabBarLabel: "Company",
 					tabBarIcon: ({ color, size }) => (
@@ -137,7 +132,7 @@ function MyTabs() {
 
 			<Tab.Screen
 				name='HR'
-				component={HR}
+				component={tabHR}
 				options={{
 					tabBarLabel: "HR",
 					tabBarIcon: ({ color, size }) => (
