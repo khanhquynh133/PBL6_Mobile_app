@@ -8,31 +8,36 @@ import Register from "./src/screens/general/Register";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomePageAdmin from "./src/screens/admin/HomePageAdmin";
+import HomePageHR from "./src/screens/hr/HomePageHR";
+import HomePageApplicant from "./src/screens/applicant/HomePageApplicant";
 const Stack = createStackNavigator();
 
 export default function App() {
 	return (
-		// <NavigationContainer>
-		// <Stack.Navigator
-		// 	screenOptions={{
-		// 		headerShown: false,
-		// 	}}
-		// 	initialRouteName='Welcome'>
-		// 	<Stack.Screen name='Welcome' component={HomePageAdmin} />
-		// 	<Stack.Screen name='Register' component={Register} />
-
-		// </Stack.Navigator>
-		// </NavigationContainer>
 		<NavigationContainer>
-			<HomePageAdmin />
-			{/* <Stack.Navigator
+			<Stack.Navigator
 				screenOptions={{
 					headerShown: false,
-				}}>
+				}}
+				initialRouteName='HPA'>
 				<Stack.Screen name='Welcome' component={Welcome} />
+				//------ĐỔI SCREEN HOMEPAGE CỦA ROLE NÀO THÌ THAY CHỮ HR = ADMIN OR
+				APPLICANT
+				<Stack.Screen name='HPA' component={HomePageHR} />
+				<Stack.Screen name='Login' component={Login} />
 				<Stack.Screen name='Register' component={Register} />
-			</Stack.Navigator> */}
+			</Stack.Navigator>
 		</NavigationContainer>
+		// <NavigationContainer>
+		// 	<HomePageAdmin />
+		// 	{/* <Stack.Navigator
+		// 		screenOptions={{
+		// 			headerShown: false,
+		// 		}}>
+		// 		<Stack.Screen name='Welcome' component={Welcome} />
+		// 		<Stack.Screen name='Register' component={Register} />
+		// 	</Stack.Navigator> */}
+		// </NavigationContainer>
 	);
 }
 
