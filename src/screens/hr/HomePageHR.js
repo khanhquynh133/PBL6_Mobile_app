@@ -9,6 +9,10 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import HomeHR from "../hr/HomeHR";
 import TotalPosts from "./TotalPosts";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import SettingPageHR from "./SettingPageHR";
+import ProfileInformation from "../applicant/ProfileInformation";
+import ListPosts from "../hr/ListPosts";
+import COLORS from "../../consts/colors";
 import { createStackNavigator } from "@react-navigation/stack";
 const Stack = createStackNavigator();
 function HomePage({ navigation }) {
@@ -26,84 +30,29 @@ function HomePage({ navigation }) {
 
 function Post() {
 	return (
-		// <Stack.Navigator
-		// 	screenOptions={{
-		// 		headerShown: false,
-		// 	}}
-		// 	initialRouteName='Posts'>
-		// 	<Stack.Screen name='Posts' component={ListPosts} />
-		// </Stack.Navigator>
-		<View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-			<Text>Settings!</Text>
-		</View>
+		<Stack.Navigator
+			screenOptions={{
+				headerShown: false,
+			}}
+			initialRouteName='Posts'>
+			<Stack.Screen name='Posts' component={ListPosts} />
+		</Stack.Navigator>
+		// <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+		// 	<Text>Settings!</Text>
+		// </View>
 	);
 }
 
 function Setting({ navigation }) {
 	return (
-		<View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-			<TouchableOpacity
-				icon='home'
-				style={{
-					alignItems: "center",
-					justifyContent: "center",
-					backgroundColor: "#426EB4",
-					padding: 10,
-					height: 35,
-					width: 140,
-					borderRadius: 20,
-					marginLeft: 50,
-					marginRight: 50,
-					marginTop: 20,
-					flexDirection: "row",
-				}}
-				onPress={() => navigation.navigate("Welcome")}>
-				<Icon
-					name='person'
-					size={16}
-					style={{ alignItems: "center", marginRight: 12, color: "#FFF" }}
-				/>
-				<Text
-					style={{
-						fontWeight: "bold",
-						fontSize: 13,
-						color: "#FFF",
-						textAlign: "center",
-					}}>
-					EDIT INFOR
-				</Text>
-			</TouchableOpacity>
-			<TouchableOpacity
-				style={{
-					alignItems: "center",
-					justifyContent: "center",
-					backgroundColor: "#426EB4",
-					padding: 10,
-					height: 35,
-					width: 140,
-					borderRadius: 20,
-					marginLeft: 50,
-					marginRight: 50,
-					marginTop: 20,
-					flexDirection: "row",
-				}}
-				onPress={() => navigation.navigate("Welcome")}>
-				<Icon
-					name='logout'
-					size={16}
-					style={{ alignItems: "center", marginRight: 12, color: "#FFF" }}
-				/>
-				<Text
-					style={{
-						fontWeight: "bold",
-						fontSize: 13,
-						color: "#FFF",
-						textAlign: "center",
-					}}>
-					LOGOUT
-				</Text>
-			</TouchableOpacity>
-		</View>
+		<Stack.Navigator
+			screenOptions={{
+				headerShown: false,
+			}}
+			initialRouteName='Setting'>
+			<Stack.Screen name='Setting' component={SettingPageHR} />
+			<Stack.Screen name='Profile' component={ProfileInformation} />
+		</Stack.Navigator>
 	);
 }
 
@@ -149,11 +98,7 @@ function MyTabs() {
 				options={{
 					tabBarLabel: "Setting",
 					tabBarIcon: ({ color, size }) => (
-						<MaterialCommunityIcons
-							name='settings-helper'
-							color={color}
-							size={size}
-						/>
+						<Icon name='settings' color={color} size={size} />
 					),
 				}}
 			/>
