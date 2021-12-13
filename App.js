@@ -21,23 +21,11 @@ export default function App() {
 				}}
 				initialRouteName='HPA'>
 				<Stack.Screen name='Welcome' component={Welcome} />
-				//------ĐỔI SCREEN HOMEPAGE CỦA ROLE NÀO THÌ THAY CHỮ HR = ADMIN OR
-				APPLICANT
-				<Stack.Screen name='HPA' component={HomePageHR} />
+				<Stack.Screen name='HPA' component={HomePageAdmin} />
 				<Stack.Screen name='Login' component={Login} />
 				<Stack.Screen name='Register' component={Register} />
 			</Stack.Navigator>
 		</NavigationContainer>
-		// <NavigationContainer>
-		// 	<HomePageAdmin />
-		// 	{/* <Stack.Navigator
-		// 		screenOptions={{
-		// 			headerShown: false,
-		// 		}}>
-		// 		<Stack.Screen name='Welcome' component={Welcome} />
-		// 		<Stack.Screen name='Register' component={Register} />
-		// 	</Stack.Navigator> */}
-		// </NavigationContainer>
 	);
 }
 
