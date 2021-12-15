@@ -13,20 +13,21 @@ import HomePageApplicant from "./src/screens/applicant/HomePageApplicant";
 const Stack = createStackNavigator();
 
 export default function App() {
-	return (
-		<NavigationContainer>
-			<Stack.Navigator
-				screenOptions={{
-					headerShown: false,
-				}}
-				initialRouteName='HPA'>
-				<Stack.Screen name='Welcome' component={Welcome} />
-				<Stack.Screen name='HPA' component={HomePageAdmin} />
-				<Stack.Screen name='Login' component={Login} />
-				<Stack.Screen name='Register' component={Register} />
-			</Stack.Navigator>
-		</NavigationContainer>
-	);
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+        initialRouteName="HPA"
+      >
+        <Stack.Screen name="Welcome" component={Welcome} />
+        <Stack.Screen name="HPA" component={HomePageApplicant} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Register" component={Register} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
 
 // import * as React from "react";
