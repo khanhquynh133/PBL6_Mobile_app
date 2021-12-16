@@ -13,6 +13,7 @@ import HomePageApplicant from "./src/screens/applicant/HomePageApplicant";
 const Stack = createStackNavigator();
 
 export default function App() {
+
 	return (
 		<NavigationContainer>
 			<Stack.Navigator
@@ -27,6 +28,7 @@ export default function App() {
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
+
 }
 
 // import * as React from "react";
