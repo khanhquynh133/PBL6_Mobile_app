@@ -23,19 +23,22 @@ const Login = ({ navigation }) => {
 			<TextInput
 				style={styles.input}
 				onChangeText={onChangeEmail}
+				//onChangeText={(email) => this.setState({ email })}
 				value={email}
 				placeholder='email'
-				keyboardType='numeric'
 			/>
 			<TextInput
 				secureTextEntry={true}
 				style={styles.input}
 				onChangeText={onChangePass}
+				//onChangeText={(pass) => this.setState({ pass })}
 				value={pass}
 				placeholder='password'
 				keyboardType='numeric'
 			/>
-			<TouchableOpacity style={styles.button}>
+			<TouchableOpacity
+				style={styles.button}
+				onPress={() => navigation.navigate("HPA")}>
 				<Text style={styles.textBtn}>CONTINUE</Text>
 			</TouchableOpacity>
 			<TouchableOpacity onPress={() => navigation.navigate("Register")}>

@@ -56,6 +56,13 @@ function tabNoti() {
 		<View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
 			<Text>Noti!</Text>
 		</View>
+		// <Stack.Navigator
+		// 	screenOptions={{
+		// 		headerShown: false,
+		// 	}}
+		// 	initialRouteName='Noti'>
+		// 	<Stack.Screen name='Noti' component={Notification} />
+		// </Stack.Navigator>
 	);
 }
 

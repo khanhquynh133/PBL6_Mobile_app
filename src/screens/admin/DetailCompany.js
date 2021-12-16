@@ -72,11 +72,23 @@ const DetailCompany = ({ navigation, route }) => {
 						We are 200+ professional software engineers with more than 10 years
 						experience in delivering superior products.
 					</Text>
+					<Text style={{ fontSize: 20, fontWeight: "bold", marginTop: 10 }}>
+						Contact
+					</Text>
+					<Text
+						style={{
+							color: "grey",
+							fontSize: 16,
+							lineHeight: 22,
+							marginTop: 10,
+						}}>
+						About 10 HRs in our company
+					</Text>
 					<View
 						style={{
 							marginTop: 20,
 							flexDirection: "row",
-							justifyContent: "space-between",
+							justifyContent: "flex-end",
 						}}>
 						<View style={style.editBtn}>
 							<Text
@@ -85,7 +97,7 @@ const DetailCompany = ({ navigation, route }) => {
 									fontSize: 18,
 									fontWeight: "bold",
 								}}>
-								Edit Company
+								Edit
 							</Text>
 						</View>
 					</View>
@@ -127,8 +139,8 @@ const style = StyleSheet.create({
 	},
 	borderBtnText: { fontWeight: "bold", fontSize: 28 },
 	editBtn: {
-		width: 160,
-		height: 50,
+		width: 80,
+		height: 30,
 		backgroundColor: COLORS.blue,
 		justifyContent: "center",
 		alignItems: "center",

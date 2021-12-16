@@ -40,7 +40,9 @@ const Item = ({ title }) => {
 				source={require("../../assets/images/DHA.png")}
 			/>
 			<Text style={styles.name}>{title}</Text>
-			<TouchableOpacity style={styles.detail}>
+			<TouchableOpacity
+				style={styles.detail}
+				onPress={() => this.props.navigation.navigate("DetailPost")}>
 				<Icon name='dots-horizontal' size={30} color='#b8b8aa' />
 			</TouchableOpacity>
 		</View>

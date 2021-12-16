@@ -19,7 +19,7 @@ export default function App() {
 				screenOptions={{
 					headerShown: false,
 				}}
-				initialRouteName='HPA'>
+				initialRouteName='Welcome'>
 				<Stack.Screen name='Welcome' component={Welcome} />
 				<Stack.Screen name='HPA' component={HomePageAdmin} />
 				<Stack.Screen name='Login' component={Login} />
