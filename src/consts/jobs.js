@@ -7,9 +7,10 @@ const jobs = [
     address: "Nguyen Huu An, DaNang",
     like: true,
     img: require("../assets/images/DHA.png"),
-    description: "ReactJS Intern",
+    description: "Opportunity !!! Apply  NoW ",
+    position: "ReactJS Intern",
     about:
-      "Succulent Plantis one of the most popular and beautiful species that will produce clumpms. The storage of water often gives succulent plants a more swollen or fleshy appearance than other plants, a characteristic known as succulence.",
+      " Data Asia House đang cần tìm kiếm những bạn trẻ đầy nhiệt huyết mong muốn học hỏi để tham gia vào các dự án chiến lược trong tương lai của công ty.",
   },
 
   {
@@ -18,9 +19,10 @@ const jobs = [
     address: "Nguyen Huu Tho, Da Nang",
     like: false,
     img: require("../assets/images/Supreme.png"),
-    description: "ReactJS Intern",
+    description: "Opportunity !!! Apply  NoW ",
+    position: "ReactJS Intern",
     about:
-      "Dragon Plant one of the most popular and beautiful species that will produce clumpms. The storage of water often gives succulent plants a more swollen or fleshy appearance than other plants, a characteristic known as succulence.",
+      "Supreme Tech đang cần tìm kiếm những bạn trẻ đầy nhiệt huyết mong muốn học hỏi để tham gia vào các dự án chiến lược trong tương lai của công ty.",
   },
   {
     id: 3,
@@ -29,9 +31,10 @@ const jobs = [
     like: false,
     like: false,
     img: require("../assets/images/TCX.png"),
-    description: "ReactJS Intern",
+    position: "ReactJS Intern",
+    description: "Opportunity !!! Apply  NoW ",
     about:
-      "Ravenea Plant one of the most popular and beautiful species that will produce clumpms. The storage of water often gives succulent plants a more swollen or fleshy appearance than other plants, a characteristic known as succulence.",
+      " Green Global đang cần tìm kiếm những bạn trẻ đầy nhiệt huyết mong muốn học hỏi để tham gia vào các dự án chiến lược trong tương lai của công ty.",
   },
 
   {
@@ -40,9 +43,10 @@ const jobs = [
     address: "Che Viet Tan, Da Nang",
     like: true,
     img: require("../assets/images/Enlab.png"),
-    description: "ReactJS Intern",
+    position: "ReactJS Intern",
+    description: "Opportunity !!! Apply  NoW ",
     about:
-      "Potted Plant Ravenea Plant one of the most popular and beautiful species that will produce clumpms. The storage of water often gives succulent plants a more swollen or fleshy appearance than other plants, a characteristic known as succulence.",
+      " Enlab đang cần tìm kiếm những bạn trẻ đầy nhiệt huyết mong muốn học hỏi để tham gia vào các dự án chiến lược trong tương lai của công ty.",
   },
   {
     id: 5,
@@ -50,9 +54,10 @@ const jobs = [
     address: "2/9 Street, Da Nang",
     like: true,
     img: require("../assets/images/KMS.png"),
-    description: "ReactJS Intern",
+    position: "ReactJS Intern",
+    description: "Opportunity !!! Apply  NoW ",
     about:
-      "Potted Plant Ravenea Plant one of the most popular and beautiful species that will produce clumpms. The storage of water often gives succulent plants a more swollen or fleshy appearance than other plants, a characteristic known as succulence.",
+      " KMS đang cần tìm kiếm những bạn trẻ đầy nhiệt huyết mong muốn học hỏi để tham gia vào các dự án chiến lược trong tương lai của công ty.",
   },
   {
     id: 6,
@@ -60,9 +65,10 @@ const jobs = [
     address: "Ngu Hanh Son, Da Nang",
     like: false,
     img: require("../assets/images/FPT.png"),
-    description: "ReactJS Intern",
+    position: "ReactJS Intern",
+    description: "Opportunity !!! Apply  Now ",
     about:
-      "Potted Plant Ravenea Plant one of the most popular and beautiful species that will produce clumpms. The storage of water often gives succulent plants a more swollen or fleshy appearance than other plants, a characteristic known as succulence.",
+      " FPT đang cần tìm kiếm những bạn trẻ đầy nhiệt huyết mong muốn học hỏi để tham gia vào các dự án chiến lược trong tương lai của công ty.",
   },
 ];
 

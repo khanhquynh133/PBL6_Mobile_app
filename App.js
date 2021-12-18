@@ -13,20 +13,21 @@ import HomePageApplicant from "./src/screens/applicant/HomePageApplicant";
 const Stack = createStackNavigator();
 
 export default function App() {
-	return (
-		<NavigationContainer>
-			<Stack.Navigator
-				screenOptions={{
-					headerShown: false,
-				}}
-				initialRouteName='Welcome'>
-				<Stack.Screen name='Welcome' component={Welcome} />
-				<Stack.Screen name='HPAdmin' component={HomePageAdmin} />
-				<Stack.Screen name='HPApplicant' component={HomePageApplicant} />
-				<Stack.Screen name='HPHR' component={HomePageHR} />
-				<Stack.Screen name='Login' component={Login} />
-				<Stack.Screen name='Register' component={Register} />
-			</Stack.Navigator>
-		</NavigationContainer>
-	);
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+        initialRouteName="Welcome"
+      >
+        <Stack.Screen name="Welcome" component={Welcome} />
+        <Stack.Screen name="HPAdmin" component={HomePageAdmin} />
+        <Stack.Screen name="HPApplicant" component={HomePageApplicant} />
+        <Stack.Screen name="HPHR" component={HomePageHR} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Register" component={Register} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
