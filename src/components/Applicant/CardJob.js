@@ -5,7 +5,7 @@ import { Text, View, Image, TouchableOpacity, Dimensions } from "react-native";
 import COLORS from "../../consts/colors";
 import Icon from "react-native-vector-icons/MaterialIcons";
 const width = Dimensions.get("window").width / 2 - 30;
-const CardJob = ({ job }) => {
+const CardJob = ({ navigation, job }) => {
 	return (
 		<TouchableOpacity activeOpacity={0.8} onPress={() => {}}>
 			<View

@@ -38,11 +38,11 @@ const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 const InvitationPage = () => {
 	const NotificationComponent = ({ invitation }) => {
 		return (
-			<SafeAreaView style={styles.container}>
+			<TouchableOpacity style={styles.container}>
 				<View style={styles.titleContainer}>
 					<View style={{ flexDirection: "column", display: "flex" }}>
 						<Image
-							source={require("../../assets/images/DHA.png")}
+							source={invitation.image}
 							style={{
 								width: 100,
 								height: 100,
@@ -91,7 +91,7 @@ const InvitationPage = () => {
 						</View>
 					</View>
 				</View>
-			</SafeAreaView>
+			</TouchableOpacity>
 		);
 	};
 
@@ -118,12 +118,12 @@ const styles = StyleSheet.create({
 	container: {
 		borderColor: "lightgrey",
 		borderWidth: 1,
-		height: HEIGHT * 0.2,
+		height: HEIGHT * 0.18,
 		backgroundColor: "white",
 		borderRadius: 8,
 		marginBottom: 5,
 		borderRadius: 20,
-		shadowOpacity: 40,
+		shadowOpacity: 20,
 		marginTop: 10,
 		marginBottom: 10,
 	},
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
 		marginRight: 4,
 		width: WIDTH * 0.2,
 		borderRadius: 10,
-		height: HEIGHT * 0.05,
+		height: HEIGHT * 0.04,
 		backgroundColor: "#73C2F9",
 		marginHorizontal: 15,
 		alignItems: "center",
