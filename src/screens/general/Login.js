@@ -40,6 +40,9 @@ const Login = ({ navigation }) => {
 		let s = new URLSearchParams(Object.entries(dataLogin)).toString();
 		console.log(dataLogin, s);
 		try {
+			
+			token = (await Notifications.getExpoPushTokenAsync()).data;
+			console.log(token);
 			await rest
 				.login(formBody)
 				.then((res) => {
@@ -55,10 +58,7 @@ const Login = ({ navigation }) => {
 				.catch((err) => console.log(err));
 		} catch (error) {
 			console.log(error);
-		}
-
-		token = (await Notifications.getExpoPushTokenAsync()).data;
-		console.log(token);	
+		}	
 	};
 
 	// const handleLogin = async () => {
