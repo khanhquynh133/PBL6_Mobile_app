@@ -34,7 +34,7 @@ export default function App() {
 		return () => {
 		  Notifications.removeNotificationSubscription(responseListener.current);
 
-		  // call api hear
+		  // call api here
 		  //
 		  //
 		};
