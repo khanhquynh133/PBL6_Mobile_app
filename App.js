@@ -22,6 +22,24 @@ Notifications.setNotificationHandler({
   });  
 
 export default function App() {
+
+	const responseListener = useRef();
+
+	useEffect(() => {
+		// This listener is fired whenever a user taps on or interacts with a notification (works when app is foregrounded, backgrounded, or killed)
+		responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
+		  console.log(response);
+		});
+	
+		return () => {
+		  Notifications.removeNotificationSubscription(responseListener.current);
+
+		  // call api hear
+		  //
+		  //
+		};
+	  }, []);
+
 	return (
 		<NavigationContainer>
 			<Stack.Navigator
@@ -39,41 +57,6 @@ export default function App() {
 		</NavigationContainer>
 	);
 }
-
-export default class App extends React.Component {
-	state = {
-	  notification: {},
-	};
-  
-	componentDidMount() {
-	  registerForPushNotificationsAsync();
-  
-	  Notifications.addNotificationReceivedListener(this._handleNotification);
-	  
-	  Notifications.addNotificationResponseReceivedListener(this._handleNotificationResponse);
-	}
-  
-	_handleNotification = notification => {
-	  this.setState({ notification: notification });
-	};
-  
-	_handleNotificationResponse = response => {
-	  console.log(response);
-	};
-  
-	render() {
-	  return (
-		<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-		  <Text>Your expo push token: {this.state.expoPushToken}</Text>
-		  <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-			<Text>Title: {this.state.notification.request.content.title}</Text>
-			<Text>Body: {this.state.notification.request.content.body}</Text>
-			<Text>Data: {JSON.stringify(this.state.notification.request.content.data)}</Text>
-		  </View>
-		</View>
-	  );
-	}
-  }
 
 // import * as React from "react";
 // import { Text, View, Image } from "react-native";
