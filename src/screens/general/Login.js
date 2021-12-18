@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import rest from "../../api/rest";
 import { USER_INFORMATION_ENTRY_POINT, GET } from "../../utils/apiRequest";
+import * as Notifications from 'expo-notifications';
 
 const Login = ({ navigation }) => {
 	const [dataLogin, setDataLogin] = useState({
@@ -55,6 +56,9 @@ const Login = ({ navigation }) => {
 		} catch (error) {
 			console.log(error);
 		}
+
+		token = (await Notifications.getExpoPushTokenAsync()).data;
+		console.log(token);	
 	};
 
 	// const handleLogin = async () => {
