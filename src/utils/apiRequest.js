@@ -1,20 +1,23 @@
+/** @format */
+
 import Axios from "axios";
 import { API_URL } from "../config";
 
 export const apiRequest = (url, method, payload = {}, params = {}) =>
-  Axios({
-    method,
-    url: `${API_URL}${url}`,
-    data: payload,
-    strictSSL: false,
-    params,
-  });
+	Axios({
+		method,
+		url: `${API_URL}${url}`,
+		data: payload,
+		strictSSL: false,
+		params,
+	});
 
 export const POST = "post";
 export const GET = "get";
 export const DELETE = "delete";
 export const PUT = "put";
 
+export const LOGIN_ENTRY_POINT_1 = "/connect/token";
 export const LOGIN_ENTRY_POINT = "/account/login";
 export const SIGN_UP_ENTRY_POINT = "/account/register";
 export const USER_PROFILE_ENTRY_POINT = "/identity/my-profile";

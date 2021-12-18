@@ -5,17 +5,34 @@ import _ from "lodash";
 import { GET_TOKEN_URL, API_URL, API_URL2 } from "../config";
 import { POST } from "../utils/apiRequest";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { acc } from "react-native-reanimated";
 
 class Rest {
 	constructor() {
 		this.endpoint = `${API_URL}`;
-		this.token = AsyncStorage.getItem("_token");
+		this.token = AsyncStorage.getItem("_token").then((token) => token);
+		this.state = {
+			token: "",
+		};
 	}
 
 	getToken = async () => {
-		return await AsyncStorage.getItem("_token");
+		const value = await AsyncStorage.getItem("_token");
+		// return AsyncStorage.getItem("_token");
+		// AsyncStorage.getItem("_token").then((token) => {
+		// 	if (token) {
+		// 		// console.log(token);
+		// 		// this.setState({ token: token });
+		// 		return token;
+		// 	}
+		// });
+		return value;
 	};
+
+	getData() {
+		const value = AsyncStorage.getItem("_token");
+		let parsed = JSON.parse(value);
+		return parsed;
+	}
 
 	request = (method, endpoint, data = {}, param = {}) => {
 		return new Promise((rs, rj) => {
@@ -23,7 +40,8 @@ class Rest {
 				url: `${API_URL2}${endpoint}`,
 				method: method,
 				headers: {
-					Authorization: `Bearer ${this.getToken()}`,
+					Authorization: `Bearer ${this.getData()}`,
+					Accept: "application/json",
 				},
 				withCredentials: true,
 				data: data,
@@ -44,7 +62,8 @@ class Rest {
 				method: method,
 				headers: {
 					Authorization: `Basic SHJlb19BcHA6MXEydzNFKg==`,
-					"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+					Accept: "application/json",
+					"Content-Type": "application/x-www-form-urlencoded",
 				},
 				withCredentials: true,
 				data: data,
@@ -63,13 +82,10 @@ class Rest {
 			.then((res) => {
 				console.log(res);
 				const { access_token } = res;
-				console.log(access_token);
-				AsyncStorage.setItem("_token", access_token);
-
+				AsyncStorage.setItem("_token", JSON.stringify(access_token));
 				return Promise.resolve(res);
 			})
 			.catch((err) => Promise.reject(err));
-		// const result = await apiRequest(LOGIN_ENTRY_POINT, POST, values);
 	};
 }
 
