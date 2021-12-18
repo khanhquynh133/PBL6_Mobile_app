@@ -1,10 +1,11 @@
 /** @format */
 
 import React, { useState, useEffect, useRef }  from "react";
-
 import Welcome from "./src/screens/general/Welcome";
 import Login from "./src/screens/general/Login";
 import Register from "./src/screens/general/Register";
+import InvitationPage from "./src/screens/applicant/InvitationPage";
+
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomePageAdmin from "./src/screens/admin/HomePageAdmin";
@@ -21,26 +22,7 @@ Notifications.setNotificationHandler({
 	}),
   });  
 
-export default function App() {
-
-	const responseListener = useRef();
-
-	useEffect(() => {
-		// This listener is fired whenever a user taps on or interacts with a notification (works when app is foregrounded, backgrounded, or killed)
-		responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
-		  console.log(response);
-		});
-	
-		return () => {
-		  Notifications.removeNotificationSubscription(responseListener.current);
-
-		  // call api here
-		  //
-		  //
-
-		};
-	  }, []);
-
+export default function App() {	
 	return (
 		<NavigationContainer>
 			<Stack.Navigator
@@ -49,9 +31,8 @@ export default function App() {
 				}}
 				initialRouteName='Welcome'>
 				<Stack.Screen name='Welcome' component={Welcome} />
-
 				<Stack.Screen name='HPA' component={HomePageApplicant} />
-
+				<Stack.Screen name='InvitationPage' component={InvitationPage} />
 				<Stack.Screen name='Login' component={Login} />
 				<Stack.Screen name='Register' component={Register} />
 			</Stack.Navigator>

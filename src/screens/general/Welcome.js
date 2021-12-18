@@ -1,8 +1,29 @@
 /** @format */
-import React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import React, { useState, useEffect, useRef }  from "react";
+import * as Notifications from 'expo-notifications';
 
 const Welcome = ({ navigation }) => {
+	
+	const responseListener = useRef();
+	const [expoPushToken, setExpoPushToken] = useState()
+
+	useEffect(() => {
+		// This listener is fired whenever a user taps on or interacts with a notification (works when app is foregrounded, backgrounded, or killed)
+		responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
+		//   <NavigationContainer>
+		// 	<Stack.Navigator
+		// 		screenOptions={{
+		// 			headerShown: false,
+		// 		}}
+		// 		initialRouteName='InvitationPage'>
+		// 		<Stack.Screen name='InvitationPage' component={Welcome} />
+		// 	</Stack.Navigator>
+		// </NavigationContainer>
+		navigation.navigate("InvitationPage")
+		});
+	  }, []);
+
 	return (
 		<View style={styles.container}>
 			<Image
