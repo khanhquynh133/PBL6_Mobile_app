@@ -15,23 +15,42 @@ class Rest {
 		};
 	}
 
-	getToken = async () => {
-		const value = await AsyncStorage.getItem("_token");
+	getToken = () => {
+		const value = AsyncStorage.getItem("_token");
 		// return AsyncStorage.getItem("_token");
-		// AsyncStorage.getItem("_token").then((token) => {
-		// 	if (token) {
-		// 		// console.log(token);
-		// 		// this.setState({ token: token });
-		// 		return token;
-		// 	}
-		// });
-		return value;
+		AsyncStorage.getItem("_token").then((token) => {
+			if (token) {
+				console.log(token);
+				// this.setState({ token: token });
+				// 		return token;
+			}
+		});
+		// return value;
 	};
 
-	getData() {
-		const value = AsyncStorage.getItem("_token");
-		let parsed = JSON.parse(value);
-		return parsed;
+	getStorageData = async (state) => {
+		try {
+			const value = await AsyncStorage.getItem("_token");
+			if (value !== null) {
+				return await JSON.parse(value);
+			}
+		} catch (error) {}
+		return state;
+	};
+
+	async getData() {
+		await AsyncStorage.getItem("_token")
+			.then((token) => {
+				console.log(token);
+				this.setState({ token: token });
+			})
+			.catch((er) => console.log(er));
+		// let parsed = JSON.parse(value);
+		// return parsed;
+	}
+
+	componentDidMount() {
+		getData();
 	}
 
 	request = (method, endpoint, data = {}, param = {}) => {
@@ -40,11 +59,12 @@ class Rest {
 				url: `${API_URL2}${endpoint}`,
 				method: method,
 				headers: {
-					Authorization: `Bearer ${this.getData()}`,
+					Authorization: `Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkE5REMzOTY0RDBGMzZFRjE3MTIxNTFGQUM3OTU0ODQ2IiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2Mzk4NDIyMTYsImV4cCI6MTY3MTM3ODIxNiwiaXNzIjoiaHR0cDovLzIwLjg1LjIzNC4xMDk6MTExMiIsImF1ZCI6IkhyZW8iLCJjbGllbnRfaWQiOiJIcmVvX0FwcCIsInN1YiI6IjNhMDBjNmEzLThmMDAtODExNC1jMmIwLWU0YmMzNzIyNzcxYSIsImF1dGhfdGltZSI6MTYzOTg0MjIxNiwiaWRwIjoibG9jYWwiLCJyb2xlIjoiYWRtaW4iLCJwaG9uZV9udW1iZXJfdmVyaWZpZWQiOiJGYWxzZSIsImVtYWlsIjoiYWRtaW5AYWJwLmlvIiwiZW1haWxfdmVyaWZpZWQiOiJGYWxzZSIsIm5hbWUiOiJhZG1pbiIsImlhdCI6MTYzOTg0MjIxNiwic2NvcGUiOlsiSHJlbyJdLCJhbXIiOlsicHdkIl19.hJI3dQn6IvWiPdfaPLQUbgjiTQpkNLdqrA8RgAikztNpvtCMIPwgWutJRsEZXDXG17idyD5lJmTlVCE2WrHXUyvk8gtpZXGpvdu5EkbTKlDnzwM6e_GOLqBNonFl8d6Eyix14VBKHPn5OqjDFwVMnFeZQEUABpiSpA1807CAxtuQ2YlUM7wKPcQSdWPk8ZMfq5iauSnqqwVTV5Va-CZnLUROTDiJOAzxdjLmULVQ5NQG-1SrP17cQ5Dz_icfcQgfXa9IA2nbbjHhWjGtzKuhazm1vl5sZ4j_nTDzk5XUFxykzj_hduvsERVk4h9ysRwqQ-MuRyOVknjB-QL6sHWGLA`,
 					Accept: "application/json",
+					"Content-Type": "application/json",
 				},
 				withCredentials: true,
-				data: data,
+				data,
 				param,
 			};
 			axios(requestOptions)
@@ -55,6 +75,7 @@ class Rest {
 				.catch((err) => rj(err));
 		});
 	};
+
 	requestLogin = (method, data) => {
 		return new Promise((rs, rj) => {
 			let requestOptions = {
@@ -82,7 +103,7 @@ class Rest {
 			.then((res) => {
 				console.log(res);
 				const { access_token } = res;
-				AsyncStorage.setItem("_token", JSON.stringify(access_token));
+				AsyncStorage.setItem("_token", access_token);
 				return Promise.resolve(res);
 			})
 			.catch((err) => Promise.reject(err));
