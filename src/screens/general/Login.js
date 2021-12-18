@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import rest from "../../api/rest";
 import { USER_INFORMATION_ENTRY_POINT, GET } from "../../utils/apiRequest";
-import * as Notifications from 'expo-notifications';
+import * as Notifications from "expo-notifications";
 
 const Login = ({ navigation }) => {
 	const [dataLogin, setDataLogin] = useState({
@@ -40,7 +40,15 @@ const Login = ({ navigation }) => {
 		let s = new URLSearchParams(Object.entries(dataLogin)).toString();
 		console.log(dataLogin, s);
 		try {
-			
+			const { status } = await Notifications.getPermissionsAsync();
+			if (status != "granted") {
+				const { status } = await Notifications.requestPermissionsAsync();
+
+				if (status != "granted") {
+					alert("Lấy token thất bại");
+					return;
+				}
+			}
 			token = (await Notifications.getExpoPushTokenAsync()).data;
 			console.log(token);
 			await rest
@@ -58,7 +66,7 @@ const Login = ({ navigation }) => {
 				.catch((err) => console.log(err));
 		} catch (error) {
 			console.log(error);
-		}	
+		}
 	};
 
 	// const handleLogin = async () => {
