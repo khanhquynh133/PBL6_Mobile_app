@@ -59,9 +59,19 @@ const Login = ({ navigation }) => {
 						.request(GET, USER_INFORMATION_ENTRY_POINT)
 						.then((res) => {
 							console.log(res);
-							navigation.navigate("HPA");
+							const role = res?.userAbp?.roles?.find((role) => role.name);
+							console.log(role?.name); // dung cai ni de navigate ch do nghe, hien tai la admin a
+							if (role?.name === "admin") {
+								navigation.navigate("HPAdmin");
+							} else if (role?.name === "hr") {
+								navigation.navigate("HPHR");
+							} else {
+								navigation.navigate("HPApplicant");
+							}
 						})
 						.catch((err) => console.log(err));
+
+					// navigation.navigate("HPA");
 				})
 				.catch((err) => console.log(err));
 		} catch (error) {

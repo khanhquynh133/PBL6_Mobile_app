@@ -13,6 +13,8 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import COLORS from "../../consts/colors";
 
 const DetailCompany = ({ navigation, route }) => {
+	const { company } = route.params.params;
+	//console.log(company.name);
 	return (
 		<SafeAreaView
 			style={{
@@ -28,7 +30,7 @@ const DetailCompany = ({ navigation, route }) => {
 			</View>
 			<View style={style.imageContainer}>
 				<Image
-					source={require("../../assets/images/DHA.png")}
+					source={company.img}
 					style={{
 						resizeMode: "contain",
 						flex: 1,
@@ -45,7 +47,7 @@ const DetailCompany = ({ navigation, route }) => {
 						alignItems: "center",
 					}}>
 					<Text style={{ fontSize: 22, fontWeight: "bold" }}>
-						Data House Asia
+						{company.name}
 					</Text>
 					<View style={style.rate}>
 						{/* <Icon name='start' size={16} /> */}
@@ -56,7 +58,7 @@ const DetailCompany = ({ navigation, route }) => {
 								fontWeight: "bold",
 								fontSize: 16,
 							}}>
-							4.7/5
+							{company.rate}/5
 						</Text>
 					</View>
 				</View>
@@ -69,8 +71,7 @@ const DetailCompany = ({ navigation, route }) => {
 							lineHeight: 22,
 							marginTop: 10,
 						}}>
-						We are 200+ professional software engineers with more than 10 years
-						experience in delivering superior products.
+						{company.about}
 					</Text>
 					<Text style={{ fontSize: 20, fontWeight: "bold", marginTop: 10 }}>
 						Contact
@@ -82,7 +83,7 @@ const DetailCompany = ({ navigation, route }) => {
 							lineHeight: 22,
 							marginTop: 10,
 						}}>
-						About 10 HRs in our company
+						{company.contact}
 					</Text>
 					<View
 						style={{
@@ -90,7 +91,7 @@ const DetailCompany = ({ navigation, route }) => {
 							flexDirection: "row",
 							justifyContent: "flex-end",
 						}}>
-						<View style={style.editBtn}>
+						{/* <View style={style.editBtn}>
 							<Text
 								style={{
 									color: COLORS.white,
@@ -99,7 +100,7 @@ const DetailCompany = ({ navigation, route }) => {
 								}}>
 								Edit
 							</Text>
-						</View>
+						</View> */}
 					</View>
 				</View>
 			</View>
