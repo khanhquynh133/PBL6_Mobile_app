@@ -10,6 +10,8 @@ import ProfileInformation from "./ProfileInformation";
 import InvitationPage from "./InvitationPage";
 import Icon from "react-native-vector-icons/Ionicons";
 import { createStackNavigator } from "@react-navigation/stack";
+import FavPosts from "./FavPosts";
+import TotalPosts from "./TotalPosts";
 const Stack = createStackNavigator();
 function HomePage({ navigation }) {
 	return (
@@ -19,6 +21,7 @@ function HomePage({ navigation }) {
 			}}
 			initialRouteName='Home'>
 			<Stack.Screen name='Home' component={HomeApplicant} />
+			<Stack.Screen name='TotalPosts' component={TotalPosts} />
 		</Stack.Navigator>
 	);
 }
@@ -45,7 +48,7 @@ function Fav() {
 				headerShown: false,
 			}}
 			initialRouteName='JobPosts'>
-			<Stack.Screen name='JobPosts' component={TotalJobPosting} />
+			<Stack.Screen name='JobPosts' component={FavPosts} />
 		</Stack.Navigator>
 	);
 }

@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import Cards from "../../components/Cards";
+import TotalPosts from "./TotalPosts";
 
 const HomeApplicant = ({ navigation }) => {
 	return (

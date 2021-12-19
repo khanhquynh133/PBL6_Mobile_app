@@ -13,11 +13,11 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import COLORS from "../../consts/colors";
-import jobs from "../../consts/jobs";
+import favjobs from "../../consts/favjobs";
 import CardJob from "../../components/Applicant/CardJob";
 const width = Dimensions.get("window").width / 2 - 30;
 
-const TotalJobPosting = ({ navigation }) => {
+const FavJobs = ({ navigation }) => {
 	return (
 		<SafeAreaView
 			style={{ flex: 1, paddingHorizontal: 20, backgroundColor: COLORS.white }}>
@@ -37,7 +37,7 @@ const TotalJobPosting = ({ navigation }) => {
 							fontWeight: "bold",
 							textAlign: "center",
 						}}>
-						Job Postings
+						Favorite Posts
 					</Text>
 				</View>
 			</View>
@@ -56,7 +56,7 @@ const TotalJobPosting = ({ navigation }) => {
 					paddingBottom: 50,
 				}}
 				numColumns={2}
-				data={jobs}
+				data={favjobs}
 				renderItem={({ item }) => {
 					return <CardJob job={item} />;
 				}}
@@ -118,4 +118,4 @@ const style = StyleSheet.create({
 		alignItems: "center",
 	},
 });
-export default TotalJobPosting;
+export default FavJobs;
