@@ -8,6 +8,8 @@ const jobs = [
 		like: true,
 		img: require("../assets/images/DHA.png"),
 		description: "NET, AngularJS",
+		about:
+			" Data Asia House đang cần tìm kiếm những bạn trẻ đầy nhiệt huyết mong muốn học hỏi để tham gia vào các dự án chiến lược trong tương lai của công ty.",
 	},
 
 	{

@@ -41,13 +41,19 @@ const TotalJobPosting = ({ navigation }) => {
 					</Text>
 				</View>
 			</View>
-
 			{/* <View style={{ marginTop: 30, marginBottom: 20, flexDirection: "row" }}>
 				<View style={style.searchContainer}>
 					<Icon name='search' size={25} style={{ marginLeft: 20 }} />
 					<TextInput placeholder='Search' style={style.input} />
 				</View>
 			</View> */}
+
+			<View style={{ marginTop: 30, marginBottom: 20, flexDirection: "row" }}>
+				<View style={style.searchContainer}>
+					<Icon name='search' size={25} style={{ marginLeft: 20 }} />
+					<TextInput placeholder='Search' style={style.input} />
+				</View>
+			</View>
 			<FlatList
 				columnWrapperStyle={{ justifyContent: "space-between" }}
 				showsVerticalScrollIndicator={false}
@@ -58,7 +64,7 @@ const TotalJobPosting = ({ navigation }) => {
 				numColumns={2}
 				data={jobs}
 				renderItem={({ item }) => {
-					return <CardJob job={item} />;
+					return <CardJob job={item} navigation={navigation} />;
 				}}
 			/>
 		</SafeAreaView>

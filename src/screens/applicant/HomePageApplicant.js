@@ -10,6 +10,7 @@ import ProfileInformation from "./ProfileInformation";
 import InvitationPage from "./InvitationPage";
 import Icon from "react-native-vector-icons/Ionicons";
 import { createStackNavigator } from "@react-navigation/stack";
+import CardJobDetail from "../../components/Applicant/CardJobDetail";
 import FavPosts from "./FavPosts";
 import TotalPosts from "./TotalPosts";
 const Stack = createStackNavigator();
@@ -34,6 +35,7 @@ function Post() {
 			}}
 			initialRouteName='JobPosts'>
 			<Stack.Screen name='JobPosts' component={TotalJobPosting} />
+			<Stack.Screen name='CardJobDetail' component={CardJobDetail} />
 		</Stack.Navigator>
 		// <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
 		// 	<Text>Settings!</Text>
@@ -48,7 +50,8 @@ function Fav() {
 				headerShown: false,
 			}}
 			initialRouteName='JobPosts'>
-			<Stack.Screen name='JobPosts' component={FavPosts} />
+			<Stack.Screen name='JobPosts' component={TotalJobPosting} />
+			<Stack.Screen name='CardJobDetail' component={CardJobDetail} />
 		</Stack.Navigator>
 	);
 }
@@ -62,9 +65,6 @@ function tabNoti() {
 			initialRouteName='InvitationPage'>
 			<Stack.Screen name='InvitationPage' component={InvitationPage} />
 		</Stack.Navigator>
-		// <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-		// 	<Text>Noti!</Text>
-		// </View>
 	);
 }
 
