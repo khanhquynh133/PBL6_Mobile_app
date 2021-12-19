@@ -23,7 +23,7 @@ const ProfileInformation = ({ navigation }) => {
 				</View>
 				<View style={{ alignItems: "center" }}>
 					<Image
-						source={require("../../assets/images/OTS.jpg")}
+						source={require("../../assets/images/HR/chinh.jpg")}
 						style={{
 							width: 140,
 							height: 140,

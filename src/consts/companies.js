@@ -74,7 +74,7 @@ const companies = [
 		name: "One Tech Solution",
 		address: "2/9 Street, Da Nang",
 		like: true,
-		img: require("../assets/images/FPT.png"),
+		img: require("../assets/images/OTS.jpg"),
 		description: "ReactJS Intern",
 		rate: "4.8",
 		contact:

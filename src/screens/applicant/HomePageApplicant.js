@@ -50,7 +50,7 @@ function Fav() {
 				headerShown: false,
 			}}
 			initialRouteName='JobPosts'>
-			<Stack.Screen name='JobPosts' component={TotalJobPosting} />
+			<Stack.Screen name='JobPosts' component={FavPosts} />
 			<Stack.Screen name='CardJobDetail' component={CardJobDetail} />
 		</Stack.Navigator>
 	);

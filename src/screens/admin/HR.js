@@ -22,7 +22,11 @@ const HR = ({ navigation }) => {
 		return (
 			<TouchableOpacity
 				activeOpacity={0.8}
-				onPress={() => navigation.navigate("DetailCompany")}>
+				onPress={() =>
+					navigation.navigate("DetailHR", {
+						params: { hr: hr },
+					})
+				}>
 				<View style={style.card}>
 					<View
 						style={{

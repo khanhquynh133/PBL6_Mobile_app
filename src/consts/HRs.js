@@ -7,9 +7,8 @@ const hrs = [
 		address: "Data House Asia",
 		like: true,
 		img: require("../assets/images/HR/quynh.jpg"),
-		description: "ReactJS Intern",
-		about:
-			"Succulent Plantis one of the most popular and beautiful species that will produce clumpms. The storage of water often gives succulent plants a more swollen or fleshy appearance than other plants, a characteristic known as succulence.",
+		description: "0935001303",
+		about: "An HR of Data House Asia with 2 years exp.",
 	},
 
 	{
@@ -29,9 +28,8 @@ const hrs = [
 		like: false,
 		like: false,
 		img: require("../assets/images/HR/huyen.png"),
-		description: "ReactJS Intern",
-		about:
-			"Ravenea Plant one of the most popular and beautiful species that will produce clumpms. The storage of water often gives succulent plants a more swollen or fleshy appearance than other plants, a characteristic known as succulence.",
+		description: "012348742",
+		about: "HR at Green Global with 2 years exp.",
 	},
 
 	{

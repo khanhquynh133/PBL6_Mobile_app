@@ -13,6 +13,7 @@ import Home from "./Home";
 import Company from "./Company";
 import DetailCompany from "./DetailCompany";
 import HR from "./HR";
+import DetailHR from "./DetailHR";
 import Applicant from "../admin/Applicant";
 import Login from "../general/Login";
 import Icon from "react-native-vector-icons/Ionicons";
@@ -56,7 +57,7 @@ function tabHR() {
 			}}
 			initialRouteName='HRR'>
 			<Stack.Screen name='HRR' component={HR} />
-			<Stack.Screen name='DetailCompany' component={DetailCompany} />
+			<Stack.Screen name='DetailHR' component={DetailHR} />
 		</Stack.Navigator>
 	);
 }

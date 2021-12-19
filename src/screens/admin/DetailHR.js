@@ -12,8 +12,8 @@ import {
 import Icon from "react-native-vector-icons/MaterialIcons";
 import COLORS from "../../consts/colors";
 
-const DetailCompany = ({ navigation, route }) => {
-	const { company } = route.params.params;
+const DetailHR = ({ navigation, route }) => {
+	const { hr } = route.params.params;
 	//console.log(company.name);
 	return (
 		<SafeAreaView
@@ -25,16 +25,16 @@ const DetailCompany = ({ navigation, route }) => {
 				<Icon
 					name='arrow-back'
 					size={28}
-					onPress={() => navigation.navigate("Companyy")}
+					onPress={() => navigation.navigate("HRR")}
 				/>
 			</View>
 			<View style={style.imageContainer}>
 				<Image
-					source={company.img}
+					source={hr.img}
 					style={{
 						width: 300,
 						height: 300,
-						marginLeft: 65,
+						marginLeft: 70,
 					}}
 				/>
 			</View>
@@ -47,24 +47,10 @@ const DetailCompany = ({ navigation, route }) => {
 						justifyContent: "space-between",
 						alignItems: "center",
 					}}>
-					<Text style={{ fontSize: 22, fontWeight: "bold" }}>
-						{company.name}
-					</Text>
-					<View style={style.rate}>
-						{/* <Icon name='start' size={16} /> */}
-						<Text
-							style={{
-								marginLeft: 15,
-								color: COLORS.white,
-								fontWeight: "bold",
-								fontSize: 16,
-							}}>
-							{company.rate}/5
-						</Text>
-					</View>
+					<Text style={{ fontSize: 22, fontWeight: "bold" }}>{hr.name}</Text>
 				</View>
 				<View style={{ paddingHorizontal: 20, marginTop: 10 }}>
-					<Text style={{ fontSize: 20, fontWeight: "bold" }}>About us</Text>
+					<Text style={{ fontSize: 20, fontWeight: "bold" }}>Information</Text>
 					<Text
 						style={{
 							color: "grey",
@@ -72,7 +58,7 @@ const DetailCompany = ({ navigation, route }) => {
 							lineHeight: 22,
 							marginTop: 10,
 						}}>
-						{company.about}
+						{hr.about}
 					</Text>
 					<Text style={{ fontSize: 20, fontWeight: "bold", marginTop: 10 }}>
 						Contact
@@ -84,7 +70,7 @@ const DetailCompany = ({ navigation, route }) => {
 							lineHeight: 22,
 							marginTop: 10,
 						}}>
-						{company.contact}
+						{hr.description}
 					</Text>
 					<View
 						style={{
@@ -158,4 +144,4 @@ const style = StyleSheet.create({
 	},
 });
 
-export default DetailCompany;
+export default DetailHR;

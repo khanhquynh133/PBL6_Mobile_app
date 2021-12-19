@@ -128,7 +128,7 @@ const Login = ({ navigation }) => {
 			</TouchableOpacity> */}
 			<TouchableOpacity
 				style={styles.button}
-				onPress={() => navigation.navigate("HPApplicant")}>
+				onPress={() => navigation.navigate("HPAdmin")}>
 				<Text style={styles.textBtn}>CONTINUE</Text>
 			</TouchableOpacity>
 
