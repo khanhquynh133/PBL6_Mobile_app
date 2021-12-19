@@ -61,7 +61,7 @@ const TotalJobPosting = ({ navigation }) => {
         numColumns={2}
         data={jobs}
         renderItem={({ item }) => {
-          return <CardJob job={item} />;
+          return <CardJob job={item} navigation={navigation} />;
         }}
       />
     </SafeAreaView>
