@@ -36,6 +36,9 @@ import Icon1 from "react-native-vector-icons/Ionicons";
 import Icon from "react-native-vector-icons/FontAwesome5";
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 const InvitationPage = () => {
+	// bổ sung gọi api
+
+
 	const NotificationComponent = ({ invitation }) => {
 		return (
 			<TouchableOpacity style={styles.container}>
