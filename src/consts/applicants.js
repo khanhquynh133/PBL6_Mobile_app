@@ -4,7 +4,7 @@ const applicants = [
 	{
 		id: 1,
 		name: "Hoang Quynh",
-		address: "Data House Asia",
+		address: "Angular, NET",
 		like: true,
 		img: require("../assets/images/HR/quynh.jpg"),
 		description: "ReactJS Intern",
@@ -66,5 +66,4 @@ const applicants = [
 	},
 ];
 
-export default applicants = [
-    ;
+export default applicants;
