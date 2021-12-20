@@ -3,3 +3,9 @@
 export const API_URL = "http://20.85.234.109:1112/api";
 export const API_URL2 = "http://20.85.234.109:1111/api";
 export const GET_TOKEN_URL = "http://20.85.234.109:1112/connect/token";
+export const GET_POSTS_URL = "http://20.85.234.109:1111/api/posts";
+export const GET_COMPANY_URL = "http://20.85.234.109:1111/api/companies";
+export const GET_APPLICANTS_URL =
+  "http://20.85.234.109:1111/api/users?RoleId=3a00de00-f7dc-a8aa-43e1-1c480f42c267";
+export const GET_HR_URL =
+  "http://20.85.234.109:1111/api/users?RoleId=3a00de00-dc83-6755-115d-eb11845366ec";
