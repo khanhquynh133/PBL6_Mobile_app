@@ -15,6 +15,7 @@ import DetailCompany from "./DetailCompany";
 import HR from "./HR";
 import DetailHR from "./DetailHR";
 import Applicant from "../admin/Applicant";
+import DetailApplicant from "./DetailApplicant";
 import Login from "../general/Login";
 import Icon from "react-native-vector-icons/Ionicons";
 import Icon1 from "react-native-vector-icons/FontAwesome5";
@@ -69,7 +70,7 @@ function tabApplicant() {
 			}}
 			initialRouteName='HRR'>
 			<Stack.Screen name='HRR' component={Applicant} />
-			<Stack.Screen name='DetailCompany' component={DetailCompany} />
+			<Stack.Screen name='DetailApplicant' component={DetailApplicant} />
 		</Stack.Navigator>
 	);
 }

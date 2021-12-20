@@ -27,7 +27,7 @@ const Login = ({ navigation }) => {
 			scope: "Hreo",
 			grant_type: "password",
 		};
-		console.log("data :>> ", data);
+		//console.log("data :>> ", data);
 		var formBody = [];
 		for (var property in data) {
 			var encodedKey = encodeURIComponent(property);
@@ -38,7 +38,7 @@ const Login = ({ navigation }) => {
 
 		dataLogin.grant_type = "password";
 		let s = new URLSearchParams(Object.entries(dataLogin)).toString();
-		console.log(dataLogin, s);
+		//console.log(dataLogin, s);
 		try {
 			const { status } = await Notifications.getPermissionsAsync();
 			if (status != "granted") {
@@ -49,8 +49,8 @@ const Login = ({ navigation }) => {
 					return;
 				}
 			}
-			token = (await Notifications.getExpoPushTokenAsync()).data;
-			console.log(token);
+			// token = (await Notifications.getExpoPushTokenAsync()).data;
+			// console.log(token);
 			await rest
 				.login(formBody)
 				.then((res) => {
@@ -60,7 +60,7 @@ const Login = ({ navigation }) => {
 						.then((res) => {
 							console.log(res);
 							const role = res?.userAbp?.roles?.find((role) => role.name);
-							console.log(role?.name); // dung cai ni de navigate ch do nghe, hien tai la admin a
+							console.log(role?.name);
 							if (role?.name === "admin") {
 								navigation.navigate("HPAdmin");
 							} else if (role?.name === "hr") {
@@ -123,6 +123,7 @@ const Login = ({ navigation }) => {
 			{/* <TouchableOpacity style={styles.button}>
 				<Button
 					onPress={handleChange}
+					onPress={() => navigation.navigate("HPAdmin")}
 					style={styles.textBtn}
 					title='LOGIN'></Button>
 			</TouchableOpacity> */}
