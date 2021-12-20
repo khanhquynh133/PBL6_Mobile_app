@@ -14,22 +14,26 @@ import {
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import COLORS from "../../consts/colors";
-import HRs from "../../consts/HRs";
+import applicants from "../../consts/applicants";
 
 const width = Dimensions.get("window").width / 2 - 30;
 const Applicant = ({ navigation }) => {
-	const Card = ({ hr }) => {
+	const Card = ({ applicant }) => {
 		return (
 			<TouchableOpacity
 				activeOpacity={0.8}
-				onPress={() => navigation.navigate("DetailCompany")}>
+				onPress={() =>
+					navigation.navigate("DetailApplicant", {
+						params: { applicant: applicant },
+					})
+				}>
 				<View style={style.card}>
 					<View
 						style={{
 							height: 80,
 						}}>
 						<Image
-							source={hr.img}
+							source={applicant.img}
 							style={{
 								alignItems: "center",
 								width: 100,
@@ -46,7 +50,7 @@ const Applicant = ({ navigation }) => {
 							alignItems: "center",
 							justifyContent: "center",
 						}}>
-						{hr.name}
+						{applicant.name}
 					</Text>
 					<View
 						style={{
@@ -54,7 +58,7 @@ const Applicant = ({ navigation }) => {
 							justifyContent: "space-between",
 							marginTop: 5,
 						}}>
-						<Text style={{ fontSize: 12 }}>{hr.address}</Text>
+						<Text style={{ fontSize: 12 }}>{applicant.address}</Text>
 					</View>
 				</View>
 			</TouchableOpacity>
@@ -95,9 +99,9 @@ const Applicant = ({ navigation }) => {
 					paddingBottom: 50,
 				}}
 				numColumns={2}
-				data={HRs}
+				data={applicants}
 				renderItem={({ item }) => {
-					return <Card hr={item} />;
+					return <Card applicant={item} />;
 				}}
 			/>
 		</SafeAreaView>
