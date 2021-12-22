@@ -78,7 +78,7 @@ const HR = ({ navigation }) => {
 				</View>
 			</View>
 
-			<View style={{ marginTop: 30, marginBottom: 20, flexDirection: "row" }}>
+			{/* <View style={{ marginTop: 30, marginBottom: 20, flexDirection: "row" }}>
 				<View style={style.searchContainer}>
 					<Icon name='search' size={25} style={{ marginLeft: 20 }} />
 					<TextInput placeholder='Search' style={style.input} />
@@ -86,14 +86,14 @@ const HR = ({ navigation }) => {
 				<View style={style.sortBtn}>
 					<Icon name='sort' size={30} color={COLORS.white} />
 				</View>
-			</View>
+			</View> */}
 
 			{/* <CategoryList /> */}
 			<FlatList
 				columnWrapperStyle={{ justifyContent: "space-between" }}
 				showsVerticalScrollIndicator={false}
 				contentContainerStyle={{
-					marginTop: 10,
+					marginTop: 40,
 					paddingBottom: 50,
 				}}
 				numColumns={2}

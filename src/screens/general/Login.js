@@ -107,6 +107,7 @@ const Login = ({ navigation }) => {
 					style={styles.textBtn}
 					title='LOGIN'></Button>
 			</TouchableOpacity> */}
+
       {isWrongPassword && (
         <Text style={styles.warningText}>Wrong Username or Password</Text>
       )}

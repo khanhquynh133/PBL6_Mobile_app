@@ -9,3 +9,5 @@ export const GET_APPLICANTS_URL =
   "http://20.85.234.109:1111/api/users?RoleId=3a00de00-f7dc-a8aa-43e1-1c480f42c267";
 export const GET_HR_URL =
   "http://20.85.234.109:1111/api/users?RoleId=3a00de00-dc83-6755-115d-eb11845366ec";
+export const GET_INFO_CURRENT_USER =
+  "http://20.85.234.109:1111/api/user-informations/current-user";

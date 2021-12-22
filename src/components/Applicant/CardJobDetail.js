@@ -1,7 +1,7 @@
 /** @format */
 
 import * as React from "react";
-import { Text, View, TextInput, Image } from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import { Card, ListItem, Button } from "react-native-elements";
 import styles from "./style";
@@ -23,7 +23,7 @@ const CardJobDetail = ({ navigation, route }) => {
 						}}
 						source={job.img}
 					/>
-					<View style={{ flexDirection: "row" }}>
+					<View style={{ flexDirection: "row", marginTop: 10 }}>
 						<View style={{ width: 20, justifyContent: "center" }}>
 							<Icon name='code' color='#adadad' size={13} />
 						</View>
@@ -44,9 +44,30 @@ const CardJobDetail = ({ navigation, route }) => {
 				<Text style={{ marginBottom: 10, textAlign: "center" }}>
 					{job.about}
 				</Text>
-				<Button title='Apply Now' />
+				{/* <Button title='Apply Now' /> */}
 				<Card.Divider />
-				<Button title='Add To Your Favorites' />
+				<TouchableOpacity
+					style={{
+						alignItems: "center",
+
+						backgroundColor: "#426EB4",
+						padding: 10,
+						height: 40,
+						width: 200,
+						borderRadius: 20,
+						marginLeft: 70,
+					}}
+					onPress={() => navigation.navigate("Company")}>
+					<Text
+						style={{
+							fontWeight: "bold",
+							fontSize: 16,
+							color: "#FFF",
+							textAlign: "center",
+						}}>
+						Care this post
+					</Text>
+				</TouchableOpacity>
 			</Card>
 		</View>
 	);

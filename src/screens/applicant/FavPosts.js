@@ -14,7 +14,7 @@ import {
 import Icon from "react-native-vector-icons/MaterialIcons";
 import COLORS from "../../consts/colors";
 import favjobs from "../../consts/favjobs";
-import CardJob from "../../components/Applicant/CardJob";
+import CardJobFav from "../../components/Applicant/CardJobFav";
 const width = Dimensions.get("window").width / 2 - 30;
 
 const FavJobs = ({ navigation }) => {
@@ -58,7 +58,7 @@ const FavJobs = ({ navigation }) => {
 				numColumns={2}
 				data={favjobs}
 				renderItem={({ item }) => {
-					return <CardJob job={item} />;
+					return <CardJobFav job={item} />;
 				}}
 			/>
 		</SafeAreaView>
