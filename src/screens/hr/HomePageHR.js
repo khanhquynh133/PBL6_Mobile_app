@@ -43,14 +43,14 @@ function Post() {
 	);
 }
 
-function Setting({ navigation }) {
+function tabSetting({ navigation }) {
 	return (
 		<Stack.Navigator
 			screenOptions={{
 				headerShown: false,
 			}}
-			initialRouteName='Setting'>
-			<Stack.Screen name='Setting' component={SettingPageHR} />
+			initialRouteName='Settings'>
+			<Stack.Screen name='Settings' component={SettingPageHR} />
 			<Stack.Screen name='Profile' component={ProfileInformation} />
 		</Stack.Navigator>
 	);
@@ -94,7 +94,7 @@ function MyTabs() {
 
 			<Tab.Screen
 				name='Setting'
-				component={Setting}
+				component={tabSetting}
 				options={{
 					tabBarLabel: "Setting",
 					tabBarIcon: ({ color, size }) => (

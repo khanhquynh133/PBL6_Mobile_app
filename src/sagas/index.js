@@ -5,7 +5,7 @@ import { SET_CURRENT_USER, INIT_APP_2, INIT_APP } from "../types";
 import rest from "../api/rest";
 // import { GET_TOKEN_URL } from "../config";
 import { GET, USER_INFORMATION_ENTRY_POINT } from "../utils/apiRequest";
-import { AsyncStorage } from "react-native-community/async-storage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function* initApp() {
 	var user = yield call(() => {
