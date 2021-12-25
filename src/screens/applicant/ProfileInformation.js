@@ -36,6 +36,7 @@ const ProfileInformation = ({ navigation }) => {
           "Content-Type": "application/json",
         },
       });
+
       if (role === "hr") {
         setCompany(response.data.branch.company);
       }
@@ -53,7 +54,7 @@ const ProfileInformation = ({ navigation }) => {
     <View>
       <ScrollView>
         <View style={styles.header}>
-          <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
+          <TouchableOpacity onPress={() => navigation.navigate("Setting")}>
             <Icon1 name="arrow-back" size={28} color="#FFF" />
           </TouchableOpacity>
         </View>

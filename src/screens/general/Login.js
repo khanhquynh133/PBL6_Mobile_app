@@ -18,40 +18,40 @@ import { GET_TOKEN_URL } from "../../config";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 const Login = ({ navigation }) => {
-	const [dataLogin, setDataLogin] = useState({
-		username: "",
-		password: "",
-	});
-	const [isShowPassword, setIsShowPassword] = useState(false);
-	const [isWrongPassword, setWrongPassword] = useState(false);
-	const handleLogin = async () => {
-		const options = {
-			method: "POST",
-			headers: {
-				Authorization: "Basic SHJlb19BcHA6MXEydzNFKg==",
-				//Accept: "application/json",
-				"Content-Type": "application/x-www-form-urlencoded",
-			},
-			withCredentials: true,
-			data: new URLSearchParams({
-				username: dataLogin.username,
-				password: dataLogin.password,
-				grant_type: "password",
-			}),
-		};
-		try {
-			const response = await axios(GET_TOKEN_URL, options);
-			const access_token = response.data.access_token;
-			await AsyncStorage.setItem("_token", access_token);
-			const { role } = jwt_decode(access_token);
-
-			if (role === "applicant") navigation.navigate("HPApplicant");
-			else if (role === "admin") navigation.navigate("HPAdmin");
-			else navigation.navigate("HPHR");
-		} catch (error) {
-			setWrongPassword(!isWrongPassword);
-		}
-	};
+  const [dataLogin, setDataLogin] = useState({
+    username: "",
+    password: "",
+  });
+  const [isShowPassword, setIsShowPassword] = useState(false);
+  const [isWrongPassword, setWrongPassword] = useState(false);
+  const handleLogin = async () => {
+    const options = {
+      method: "POST",
+      headers: {
+        Authorization: "Basic SHJlb19BcHA6MXEydzNFKg==",
+        //Accept: "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      withCredentials: true,
+      data: new URLSearchParams({
+        username: dataLogin.username,
+        password: dataLogin.password,
+        grant_type: "password",
+      }),
+    };
+    try {
+      const response = await axios(GET_TOKEN_URL, options);
+      const access_token = response.data.access_token;
+      await AsyncStorage.setItem("_token", access_token);
+      const { role } = jwt_decode(access_token);
+      await AsyncStorage.setItem("role", role);
+      if (role === "applicant") navigation.navigate("HPApplicant");
+      else if (role === "admin") navigation.navigate("HPAdmin");
+      else if (role === "hr") navigation.navigate("HPHR");
+    } catch (error) {
+      setWrongPassword(!isWrongPassword);
+    }
+  };
 
   return (
     <View style={styles.container}>

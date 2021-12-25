@@ -50,29 +50,6 @@ const CardJobDetail = ({ navigation, route }) => {
         </Text>
         {/* <Button title='Apply Now' /> */}
         <Card.Divider />
-        <TouchableOpacity
-          style={{
-            alignItems: "center",
-            backgroundColor: "#426EB4",
-            padding: 10,
-            height: 40,
-            width: 200,
-            borderRadius: 20,
-            marginLeft: 70,
-          }}
-          onPress={() => navigation.navigate("JobPosts")}
-        >
-          <Text
-            style={{
-              fontWeight: "bold",
-              fontSize: 16,
-              color: "#FFF",
-              textAlign: "center",
-            }}
-          >
-            Care this post
-          </Text>
-        </TouchableOpacity>
       </Card>
     </View>
   );

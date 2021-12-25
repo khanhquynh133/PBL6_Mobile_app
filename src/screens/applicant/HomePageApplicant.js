@@ -16,98 +16,104 @@ import TotalPosts from "./TotalPosts";
 
 const Stack = createStackNavigator();
 function HomePage({ navigation }) {
-	return (
-		<Stack.Navigator
-			screenOptions={{
-				headerShown: false,
-			}}
-			initialRouteName='Home'>
-			<Stack.Screen name='Home' component={HomeApplicant} />
-			<Stack.Screen name='TotalPosts' component={TotalPosts} />
-		</Stack.Navigator>
-	);
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+      initialRouteName="Home"
+    >
+      <Stack.Screen name="Home" component={HomeApplicant} />
+      <Stack.Screen name="TotalPosts" component={TotalPosts} />
+    </Stack.Navigator>
+  );
 }
 
 function Post() {
-	return (
-		<Stack.Navigator
-			screenOptions={{
-				headerShown: false,
-			}}
-			initialRouteName='JobPosts'>
-			<Stack.Screen name='JobPosts' component={TotalJobPosting} />
-			<Stack.Screen name='CardJobDetail' component={CardJobDetail} />
-		</Stack.Navigator>
-		// <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-		// 	<Text>Settings!</Text>
-		// </View>
-	);
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+      initialRouteName="JobPosts"
+    >
+      <Stack.Screen name="JobPosts" component={TotalJobPosting} />
+      <Stack.Screen name="CardJobDetail" component={CardJobDetail} />
+    </Stack.Navigator>
+    // <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+    // 	<Text>Settings!</Text>
+    // </View>
+  );
 }
 
 function Fav() {
-	return (
-		<Stack.Navigator
-			screenOptions={{
-				headerShown: false,
-			}}
-			initialRouteName='JobPosts'>
-			<Stack.Screen name='JobPosts' component={FavPosts} />
-			<Stack.Screen name='CardJobDetail' component={CardJobDetail} />
-		</Stack.Navigator>
-	);
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+      initialRouteName="JobPosts"
+    >
+      <Stack.Screen name="JobPosts" component={FavPosts} />
+      <Stack.Screen name="CardJobDetail" component={CardJobDetail} />
+    </Stack.Navigator>
+  );
 }
 
 function tabNoti() {
-	return (
-		<Stack.Navigator
-			screenOptions={{
-				headerShown: false,
-			}}
-			initialRouteName='InvitationPage'>
-			<Stack.Screen name='InvitationPage' component={InvitationPage} />
-		</Stack.Navigator>
-	);
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+      initialRouteName="InvitationPage"
+    >
+      <Stack.Screen name="InvitationPage" component={InvitationPage} />
+    </Stack.Navigator>
+  );
 }
 
 function tabSetting() {
-	return (
-		<Stack.Navigator
-			screenOptions={{
-				headerShown: false,
-			}}
-			initialRouteName='Setting'>
-			<Stack.Screen name='Setting' component={SettingPageA} />
-			<Stack.Screen name='Profile' component={ProfileInformation} />
-		</Stack.Navigator>
-	);
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+      initialRouteName="Setting"
+    >
+      <Stack.Screen name="Setting" component={SettingPageA} />
+      <Stack.Screen name="Profile" component={ProfileInformation} />
+    </Stack.Navigator>
+  );
 }
 
 const Tab = createBottomTabNavigator();
 
 function MyTabs() {
-	return (
-		<Tab.Navigator
-			initialRouteName='HomePage'
-			screenOptions={{
-				tabBarActiveTintColor: "#e91e63",
-				tabBarVisible: false,
-			}}>
-			<Tab.Screen
-				name='New Feed'
-				component={Post}
-				options={{
-					tabBarLabel: "New Feed",
-					tabBarIcon: ({ color, size }) => (
-						<MaterialCommunityIcons
-							name='newspaper-variant-outline'
-							color={color}
-							size={size}
-						/>
-					),
-				}}
-			/>
+  return (
+    <Tab.Navigator
+      initialRouteName="HomePage"
+      screenOptions={{
+        tabBarActiveTintColor: "#e91e63",
+        tabBarVisible: false,
+      }}
+    >
+      <Tab.Screen
+        name="New Feed"
+        component={Post}
+        options={{
+          tabBarLabel: "New Feed",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons
+              name="newspaper-variant-outline"
+              color={color}
+              size={size}
+            />
+          ),
+        }}
+      />
 
-			{/* <Tab.Screen
+      {/* <Tab.Screen
 				name='Favorite Post'
 				component={Fav}
 				options={{
@@ -118,32 +124,32 @@ function MyTabs() {
 				}}
 			/> */}
 
-			<Tab.Screen
-				name='Notification'
-				component={tabNoti}
-				options={{
-					tabBarLabel: "Notification",
-					tabBarIcon: ({ color, size }) => (
-						<Icon name='md-notifications' color={color} size={size} />
-					),
-				}}
-			/>
+      <Tab.Screen
+        name="Notification"
+        component={tabNoti}
+        options={{
+          tabBarLabel: "Notification",
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="md-notifications" color={color} size={size} />
+          ),
+        }}
+      />
 
-			<Tab.Screen
-				name='Setting'
-				component={tabSetting}
-				options={{
-					tabBarLabel: "Setting",
-					tabBarIcon: ({ color, size }) => (
-						<Icon name='settings' color={color} size={size} />
-					),
-				}}
-			/>
-		</Tab.Navigator>
-	);
+      <Tab.Screen
+        name="Setting"
+        component={tabSetting}
+        options={{
+          tabBarLabel: "Setting",
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="settings" color={color} size={size} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
 }
 
 const HomePageApplicant = () => {
-	return <MyTabs />;
+  return <MyTabs />;
 };
 export default HomePageApplicant;
