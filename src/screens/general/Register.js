@@ -13,6 +13,7 @@ const Register = ({ navigation }) => {
 	const [name, onChangeName] = React.useState("");
 	const [email, onChangeEmail] = React.useState("");
 	const [pass, onChangePass] = React.useState("");
+	const [role, onChangeRole] = React.useState("");
 	const [text, onChangeText] = React.useState("Useless Text");
 
 	return (
@@ -41,6 +42,12 @@ const Register = ({ navigation }) => {
 				onChangeText={onChangePass}
 				value={pass}
 				placeholder='password'
+			/>
+			<TextInput
+				style={styles.input}
+				onChangeText={onChangeRole}
+				value={role}
+				placeholder='role'
 			/>
 
 			<TouchableOpacity

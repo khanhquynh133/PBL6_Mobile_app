@@ -12,17 +12,18 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import SettingPageHR from "./SettingPageHR";
 import ProfileInformation from "../applicant/ProfileInformation";
 import ListPosts from "../hr/ListPosts";
+import ListTests from "../hr/ListTests";
 import COLORS from "../../consts/colors";
 import { createStackNavigator } from "@react-navigation/stack";
 const Stack = createStackNavigator();
-function HomePage({ navigation }) {
+function tabTest({ navigation }) {
 	return (
 		<Stack.Navigator
 			screenOptions={{
 				headerShown: false,
 			}}
-			initialRouteName='Home'>
-			<Stack.Screen name='Home' component={HomeHR} />
+			initialRouteName='ListTest'>
+			<Stack.Screen name='ListTest' component={ListTests} />
 			<Stack.Screen name='TotalPosts' component={TotalPosts} />
 		</Stack.Navigator>
 	);
@@ -61,22 +62,11 @@ const Tab = createBottomTabNavigator();
 function MyTabs() {
 	return (
 		<Tab.Navigator
-			initialRouteName='HomePage'
+			initialRouteName='Post'
 			screenOptions={{
 				tabBarActiveTintColor: "#e91e63",
 				tabBarVisible: false,
 			}}>
-			<Tab.Screen
-				name='HomePage'
-				component={HomePage}
-				options={{
-					tabBarLabel: "Home",
-					tabBarIcon: ({ color, size }) => (
-						<MaterialCommunityIcons name='home' color={color} size={size} />
-					),
-				}}
-			/>
-
 			<Tab.Screen
 				name='Post'
 				component={Post}
@@ -91,7 +81,20 @@ function MyTabs() {
 					),
 				}}
 			/>
-
+			<Tab.Screen
+				name='Test'
+				component={tabTest}
+				options={{
+					tabBarLabel: "Test",
+					tabBarIcon: ({ color, size }) => (
+						<MaterialCommunityIcons
+							name='playlist-edit'
+							color={color}
+							size={size}
+						/>
+					),
+				}}
+			/>
 			<Tab.Screen
 				name='Setting'
 				component={tabSetting}

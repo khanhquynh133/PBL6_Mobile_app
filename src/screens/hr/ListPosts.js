@@ -8,37 +8,44 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 const DATA = [
 	{
 		id: "1",
-		title: "Intership Winter 2021",
+		title:
+			"[HCM] Công Ty SupremeTech Tuyển Dụng Nhân Viên Frontend Developer (React) Full-time 2021",
+		logo: require("../../assets/images/Supreme.png"),
 	},
 	{
 		id: "2",
-		title: "Supreme Tech",
+		title:
+			"[HN] Công Ty Appota Tuyển Dụng Lập Trình Viên Nodejs (Appotapay) Full-time 2021",
 	},
 	{
 		id: "3",
-		title: "Green Global",
+		title:
+			"[HN] Công Ty Công Nghệ Appota Group Tuyển Dụng Lập Trình Viên Reactjs Full-time 2021",
 	},
 	{
 		id: "4",
-		title: "Enlab",
+		title:
+			"[HN] Công Ty Appota Tuyển Dụng Lập Trình Viên Nodejs Dự Án Game Blockchain Full-time 2021",
 	},
 	{
 		id: "5",
-		title: "Enclave",
+		title:
+			"[HCM] Công Ty Alta Software Tuyển Dụng Nhân Viên/Thực Tập Sinh Lập Trình PHP Full-time 2021",
 	},
 	{
 		id: "6",
-		title: "Bap",
+		title:
+			"[HCM] Công Ty Alta Software Tuyển Dụng Nhân Viên/Thực Tập Sinh Wordpress Full-time 2021",
 	},
 ];
 
-const Item = ({ title }) => {
+const Item = ({ title, logo }) => {
 	return (
 		<View style={styles.item}>
-			<Image
+			{/* <Image
 				style={styles.logo}
-				source={require("../../assets/images/DHA.png")}
-			/>
+				source={require("../../assets/images/Supreme.png")}
+			/> */}
 			<Text style={styles.name}>{title}</Text>
 			<TouchableOpacity
 				style={styles.detail}
@@ -111,7 +118,7 @@ const styles = StyleSheet.create({
 	name: {
 		flex: 1,
 		color: "#FFF",
-		fontSize: 20,
+		fontSize: 12,
 	},
 	logo: {
 		width: 40,

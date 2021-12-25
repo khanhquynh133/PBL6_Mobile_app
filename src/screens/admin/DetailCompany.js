@@ -30,7 +30,7 @@ const DetailCompany = ({ navigation, route }) => {
 			</View>
 			<View style={style.imageContainer}>
 				<Image
-					source={company.img}
+					source={{ uri: company.logoUrl }}
 					style={{
 						width: 300,
 						height: 300,
@@ -50,9 +50,9 @@ const DetailCompany = ({ navigation, route }) => {
 					<Text style={{ fontSize: 22, fontWeight: "bold" }}>
 						{company.name}
 					</Text>
-					<View style={style.rate}>
-						{/* <Icon name='start' size={16} /> */}
-						<Text
+					{/* <View style={style.rate}>
+						<Icon name='start' size={16} /> 
+						 <Text
 							style={{
 								marginLeft: 15,
 								color: COLORS.white,
@@ -62,6 +62,7 @@ const DetailCompany = ({ navigation, route }) => {
 							{company.rate}/5
 						</Text>
 					</View>
+					 */}
 				</View>
 				<View style={{ paddingHorizontal: 20, marginTop: 10 }}>
 					<Text style={{ fontSize: 20, fontWeight: "bold" }}>About us</Text>
@@ -72,12 +73,12 @@ const DetailCompany = ({ navigation, route }) => {
 							lineHeight: 22,
 							marginTop: 10,
 						}}>
-						{company.about}
+						{company.description}
 					</Text>
 					<Text style={{ fontSize: 20, fontWeight: "bold", marginTop: 10 }}>
 						Contact
 					</Text>
-					<Text
+					{/* <Text
 						style={{
 							color: "grey",
 							fontSize: 16,
@@ -85,7 +86,7 @@ const DetailCompany = ({ navigation, route }) => {
 							marginTop: 10,
 						}}>
 						{company.contact}
-					</Text>
+					</Text> */}
 					<View
 						style={{
 							marginTop: 20,

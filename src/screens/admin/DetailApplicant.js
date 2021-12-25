@@ -72,7 +72,7 @@ const DetailHR = ({ navigation, route }) => {
 							lineHeight: 22,
 							marginTop: 10,
 						}}>
-						{applicant.description}
+						{applicant.phoneNumber}
 					</Text>
 					<View
 						style={{

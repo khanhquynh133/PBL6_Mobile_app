@@ -14,9 +14,27 @@ import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import COLORS from "../../consts/colors";
 import companies from "../../consts/companies";
+import { GET_COMPANY_URL } from "../../config";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import IsLoading from "../../components/Loading";
 const width = Dimensions.get("window").width / 2 - 30;
 
 const Company = ({ navigation }) => {
+	const [isLoading, setIsLoading] = useState(false);
+	const [allcompanies, setAllCompanies] = useState({});
+
+	useEffect(() => {
+		//"eyJhbGciOiJSUzI1NiIsImtpZCI6IkE5REMzOTY0RDBGMzZFRjE3MTIxNTFGQUM3OTU0ODQ2IiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2Mzk5MTExOTMsImV4cCI6MTY3MTQ0NzE5MywiaXNzIjoiaHR0cDovLzIwLjg1LjIzNC4xMDk6MTExMiIsImF1ZCI6IkhyZW8iLCJjbGllbnRfaWQiOiJIcmVvX0FwcCIsInN1YiI6IjNhMDBkZTAxLWZlYzYtM2ZjZC1iMDdkLWY2NjlmYjU5MTFjOCIsImF1dGhfdGltZSI6MTYzOTkxMTE5MywiaWRwIjoibG9jYWwiLCJyb2xlIjoiYXBwbGljYW50IiwicGhvbmVfbnVtYmVyX3ZlcmlmaWVkIjoiRmFsc2UiLCJlbWFpbCI6ImRhdHZuQGV4YW1wbGUuY29tIiwiZW1haWxfdmVyaWZpZWQiOiJGYWxzZSIsIm5hbWUiOiJkYXR2biIsImlhdCI6MTYzOTkxMTE5Mywic2NvcGUiOlsiYWRkcmVzcyIsImVtYWlsIiwiSHJlbyIsIm9wZW5pZCIsInBob25lIiwicHJvZmlsZSIsInJvbGUiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicHdkIl19.VrZRWXZiD4yrspai62wrR7ZSFBTxzhjgKwbvOq-zHL12jxATdvEya2H_GRV3cE8HeVSQnD3-y3nzqLOsie4WDBU4UYIgbyBVcPShsAnRT6Yj_GZi9AYDjZ6KN4wywifwFSHMDonMBFsws6K7sawNqx9IqbVr7AzLARkMIzHJxTplYQuj5SBVPou5vkouA-T59w0gHVrBXTut5eevEVi6_YarkBHmWgRKQPhh-PAwjqQVdSN288qICcpD8RqF5SLK5t7zZ4VWixVcWQebR-VN1IWY0jTDIN9y88_C9Ks0X3m04NL0OUsxdMZLeJE4BtP9xEhxXjYhKz1g1PVoV_z7vA";
+		const getCompanies = async () => {
+			setIsLoading(true);
+			const response = await axios.get(GET_COMPANY_URL);
+			setAllCompanies(response.data.items);
+			//console.log(response);
+			setIsLoading(false);
+		};
+		getCompanies();
+	}, []);
 	const Card = ({ company }) => {
 		return (
 			<TouchableOpacity
@@ -32,7 +50,7 @@ const Company = ({ navigation }) => {
 							height: 80,
 						}}>
 						<Image
-							source={company.img}
+							source={{ uri: company.logoUrl }}
 							style={{
 								alignItems: "center",
 								width: 100,
@@ -63,7 +81,9 @@ const Company = ({ navigation }) => {
 		);
 	};
 
-	return (
+	return isLoading ? (
+		<IsLoading />
+	) : (
 		<SafeAreaView
 			style={{ flex: 1, paddingHorizontal: 20, backgroundColor: COLORS.white }}>
 			<View style={style.header}>
@@ -100,7 +120,7 @@ const Company = ({ navigation }) => {
 					paddingBottom: 50,
 				}}
 				numColumns={2}
-				data={companies}
+				data={allcompanies}
 				renderItem={({ item }) => {
 					return <Card company={item} />;
 				}}
