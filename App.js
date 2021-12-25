@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState, useEffect, useRef }  from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Welcome from "./src/screens/general/Welcome";
 import Login from "./src/screens/general/Login";
 import Register from "./src/screens/general/Register";
@@ -11,36 +11,38 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomePageAdmin from "./src/screens/admin/HomePageAdmin";
 import HomePageHR from "./src/screens/hr/HomePageHR";
 import HomePageApplicant from "./src/screens/applicant/HomePageApplicant";
+import TotalJobPosting from "./src/screens/applicant/TotalJobPosting";
 const Stack = createStackNavigator();
-import * as Notifications from 'expo-notifications';
+import * as Notifications from "expo-notifications";
 
 Notifications.setNotificationHandler({
-	handleNotification: async () => ({
-	  shouldShowAlert: true,
-	  shouldPlaySound: false,
-	  shouldSetBadge: false,
-	}),
-  });  
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: false,
+    shouldSetBadge: false,
+  }),
+});
 
-export default function App() {	
-	return (
-		<NavigationContainer>
-			<Stack.Navigator
-				screenOptions={{
-					headerShown: false,
-				}}
-				initialRouteName='Welcome'>
-				<Stack.Screen name='Welcome' component={Welcome} />
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+        initialRouteName="Welcome"
+      >
+        <Stack.Screen name="Welcome" component={Welcome} />
 
-				<Stack.Screen name='InvitationPage' component={InvitationPage} />
+        <Stack.Screen name="InvitationPage" component={InvitationPage} />
 
-				<Stack.Screen name='HPAdmin' component={HomePageAdmin} />
-				<Stack.Screen name='HPApplicant' component={HomePageApplicant} />
-				<Stack.Screen name='HPHR' component={HomePageHR} />
+        <Stack.Screen name="HPAdmin" component={HomePageAdmin} />
+        <Stack.Screen name="HPApplicant" component={HomePageApplicant} />
+        <Stack.Screen name="HPHR" component={HomePageHR} />
 
-				<Stack.Screen name='Login' component={Login} />
-				<Stack.Screen name='Register' component={Register} />
-			</Stack.Navigator>
-		</NavigationContainer>
-	);
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Register" component={Register} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }

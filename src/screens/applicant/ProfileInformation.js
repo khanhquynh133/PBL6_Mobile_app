@@ -47,7 +47,6 @@ const ProfileInformation = ({ navigation }) => {
     };
     getUserInfo();
   }, []);
-  console.log(role);
   return isLoading ? (
     <IsLoading />
   ) : (
