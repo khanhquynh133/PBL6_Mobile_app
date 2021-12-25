@@ -28,8 +28,10 @@ const HR = ({ navigation }) => {
 		const getHRs = async () => {
 			setIsLoading(true);
 			const response = await axios.get(GET_HR_URL);
+
 			setAllHRs(response.data.items.filter((hr) => hr.branch !== null));
 			console.log(response.data.items);
+
 			setIsLoading(false);
 		};
 		getHRs();
