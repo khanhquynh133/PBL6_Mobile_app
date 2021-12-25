@@ -30,7 +30,6 @@ const HR = ({ navigation }) => {
 			setIsLoading(true);
 			const response = await axios.get(GET_HR_URL);
 			setAllHRs(response.data.items);
-			console.log(response.data.items);
 			setIsLoading(false);
 		};
 		getHRs();
