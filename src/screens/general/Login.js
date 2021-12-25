@@ -44,6 +44,7 @@ const Login = ({ navigation }) => {
 			const access_token = response.data.access_token;
 			await AsyncStorage.setItem("_token", access_token);
 			const { role } = jwt_decode(access_token);
+
 			if (role === "applicant") navigation.navigate("HPApplicant");
 			else if (role === "admin") navigation.navigate("HPAdmin");
 			else navigation.navigate("HPHR");

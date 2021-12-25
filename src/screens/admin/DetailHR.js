@@ -30,7 +30,8 @@ const DetailHR = ({ navigation, route }) => {
 			</View>
 			<View style={style.imageContainer}>
 				<Image
-					source={hr.img}
+					//source={hr.img}
+					source={{ uri: hr.branch.company.logoUrl }}
 					style={{
 						width: 300,
 						height: 300,
@@ -50,16 +51,6 @@ const DetailHR = ({ navigation, route }) => {
 					<Text style={{ fontSize: 22, fontWeight: "bold" }}>{hr.name}</Text>
 				</View>
 				<View style={{ paddingHorizontal: 20, marginTop: 10 }}>
-					<Text style={{ fontSize: 20, fontWeight: "bold" }}>Information</Text>
-					<Text
-						style={{
-							color: "grey",
-							fontSize: 16,
-							lineHeight: 22,
-							marginTop: 10,
-						}}>
-						{hr.about}
-					</Text>
 					<Text style={{ fontSize: 20, fontWeight: "bold", marginTop: 10 }}>
 						Contact
 					</Text>
@@ -70,7 +61,16 @@ const DetailHR = ({ navigation, route }) => {
 							lineHeight: 22,
 							marginTop: 10,
 						}}>
-						{hr.phone}
+						{hr.about}
+					</Text>
+					<Text
+						style={{
+							color: "grey",
+							fontSize: 16,
+							lineHeight: 22,
+							marginTop: 10,
+						}}>
+						{hr.phoneNumber}
 					</Text>
 					<View
 						style={{

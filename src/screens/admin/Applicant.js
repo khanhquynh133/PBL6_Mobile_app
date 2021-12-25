@@ -50,7 +50,8 @@ const Applicant = ({ navigation }) => {
 							height: 80,
 						}}>
 						<Image
-							source={applicant.img}
+							//source={applicant.img}
+							source={{ uri: applicant.avatarUrl }}
 							style={{
 								alignItems: "center",
 								width: 100,
